@@ -11,6 +11,8 @@ namespace TicTacToe
         private const char PlayerSign = 'X';
         private const char ComputerSign = 'O';
 
+        private const int LowestField = 1;
+
         public GameBoard()
         {
             _startingValues.CopyTo(_gameFields, 0);
@@ -18,7 +20,7 @@ namespace TicTacToe
 
         public bool IsFieldFree(int field)
         {
-            if (field < 1 || field > 9) 
+            if (field < LowestField || field > 9) 
                 throw new ArgumentOutOfRangeException(nameof(field));
 
             return (_gameFields[field - 1] != PlayerSign)
@@ -27,7 +29,7 @@ namespace TicTacToe
 
         public void SetField(int field, ActivePlayer activePlayer)
         {
-            if (field < 1 || field > 9)
+            if (field < LowestField || field > 9)
                 throw new ArgumentOutOfRangeException(nameof(field));
 
             if (activePlayer == ActivePlayer.Computer)
