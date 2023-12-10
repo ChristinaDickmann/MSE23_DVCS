@@ -53,11 +53,6 @@ namespace TicTacToe
             return freeFields;
         }
 
-        public static bool InputAllowed(int input)
-        {
-            return input >= LowestField && input <= HighestField;
-        }
-
         public void DrawCurrentGrid()
         {
             Console.WriteLine("   |   |   |");

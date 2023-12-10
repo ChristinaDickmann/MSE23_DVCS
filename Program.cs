@@ -70,7 +70,7 @@ namespace TicTacToe
             var input = Console.ReadLine();
             int.TryParse(input, out var chosenField);
 
-            if (!GameBoard.InputAllowed(chosenField))
+            if (!InputAllowed(chosenField))
             {
                 Console.WriteLine("Wrong input. You have to choose a number between 1 and 9.");
                 return;
@@ -89,6 +89,11 @@ namespace TicTacToe
             }
             
             UpdateGameValues();
+        }
+
+        private static bool InputAllowed(int input)
+        {
+            return input >= 1 && input <= 9;
         }
 
         private static void ComputerAction()
